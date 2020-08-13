@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import {postKeyValueRequest} from "../utils/api";
+
 
     export default {
         name: "Login",
@@ -37,7 +37,7 @@
             submitLogin(){
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
-                        postKeyValueRequest('/doLogin',this.loginForm).then(resp=>{
+                        this.postKeyValueRequest('/doLogin',this.loginForm).then(resp=>{
                             if (resp){
                              window.sessionStorage.getItem("user",JSON.stringify(resp.obj));
                              this.$router.replace("/home")
