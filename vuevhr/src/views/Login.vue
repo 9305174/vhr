@@ -39,8 +39,8 @@
                     if (valid) {
                         postKeyValueRequest('/doLogin',this.loginForm).then(resp=>{
                             if (resp){
-                                alert(JSON.stringify(resp));
-
+                             window.sessionStorage.getItem("user",JSON.stringify(resp.obj));
+                             this.$router.replace("/home")
                             }
                         })
                     } else {
